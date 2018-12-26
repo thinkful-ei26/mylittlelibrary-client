@@ -1,17 +1,11 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-class App extends Component {
-  render() {
-    return (
-     <div>
+<!DOCTYPE html>
+<html>
+  <head> </head>
   <body>
     <header>
       <nav>
-      <div className="libraryinformation"><a href="#">Library Information</a></div>
         <h1>My Little Library</h1>
-        
+        <div>Library Information</div>
       </nav>
     </header>
     <section className="searchbar">
@@ -22,18 +16,9 @@ class App extends Component {
             <option value="Title">Title</option>
             <option value="Subject">Subject</option>
         </select>
-        <input type="text"/>
+        <input type="text">
         <button>Search</button>
       </form>
     </section>
-       <div className="outputarea">
-        test output here
-
-    </div>
   </body>
-</div>
-    );
-  }
-}
-
-export default App;
+</html>

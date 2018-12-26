@@ -1,32 +1,35 @@
-.App {
+body{
+  width: 70%;
   text-align: center;
+  padding:0 10rem;
+}
+a {
+  
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+nav {
+display: inline-block;
+width: 100%;
+
+}
+h1  {
+  color: rgb(78, 78, 134);
+  font-size: 3rem;
+}
+nav .libraryinformation {
+  padding: 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.outputarea{
+margin: 5rem;
+padding: 2rem;
+text-align:center;
+background-color:whitesmoke;
+min-height: 10rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.searchbar {
+  background-color:whitesmoke;
+  padding: 1rem;
+  margin: 2rem;
 }
