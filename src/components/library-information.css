@@ -1,0 +1,12 @@
+li {
+    list-style: none;
+}
+.library-information-items {
+    border: 1px solid black;
+    text-align: left;
+    padding: 1rem;
+}
+.library-information {
+    width: 40%;
+    padding: 4rem;
+}
