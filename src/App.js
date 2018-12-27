@@ -5,33 +5,57 @@ import SearchResult from './components/search-result';
 import SearchBar from './components/searchbar';
 import LibraryInformation from './components/library-information';
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
+    super(props);
     this.state = {
-      display_library_information: false
+      displayInfo: false
     };
   }
-  onSubmit(event) {
+  onClick(event) {
     event.preventDefault();
   }
-  setDisplay(display_library_information) {
+  setDisplay(displayInfo) {
     this.setState({
-      display_library_information
+      displayInfo
     });
   }
 
   render() {
-
-
-
+    if (this.state.displayInfo) {
+      return(
+        <div>
+        <body>
+          <header>
+            <nav>
+              <div className="libraryinformation">
+                <button onClick={() => this.setDisplay(true)}>
+                 <a href=""> Library Information</a>
+                </button>
+                <div className="library-information-bubble" />
+                <LibraryInformation/>
+              </div>
+              <h1>My Little Library</h1>
+            </nav>
+          </header>
+          <SearchBar />
+          <SearchResult />
+        </body>
+      </div>
     
+      
+      );
+    }
+
     return (
       <div>
         <body>
           <header>
             <nav>
               <div className="libraryinformation">
-                <a href="#">Library Information</a>
+                <button onClick={() => this.setDisplay(true)}>
+                  Library Information
+                </button>
                 <div className="library-information-bubble" />
               </div>
               <h1>My Little Library</h1>

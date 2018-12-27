@@ -8,5 +8,8 @@ li {
 }
 .library-information {
     width: 40%;
-    padding: 4rem;
+    padding: 1rem;
+    position: absolute;
+    top:0;
+    right:0;
 }
