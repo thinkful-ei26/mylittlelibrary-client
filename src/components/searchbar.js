@@ -1,37 +1,68 @@
 import React from 'react';
+import { API_BASE_URL } from '../config';
+import SearchResult from './search-result';
 import './searchbar.css';
 
-export default function SearchBar(){
-  const TEST_SEARCH = 'mongodb://dev:password@ds215172.mlab.com:15172/library-app'
-  function getDataFromApi(searchTerm, callback) {
-  const settings = {
-    url: TEST_SEARCH,
-    data: {
-      q: `${searchTerm} in:name`,  //searchTerm is passed in as 'query' which is the value of the user input.
-      per_page: 5
-    },
-    dataType: 'json',
-    type: 'GET',
-    success: callback //the callback is the function that puts html to the DOM
-  };
+export default class SearchBar extends React.Component {
+  constructor(props) {
+    super(props);
 
-  $.ajax(settings);
-}
-console.log(getDataFromApi())
+    this.state = {
+      // lists: [],
+      error: null,
+      loading: false
+    };
+  }
+  componentDidMount() {
+    this.loadBooks();
+  }
 
-return(
-     <section className="searchbar">
-    <h3>Catalog Quick Search</h3>
-      <form className="searchform" action="">
-        <select name="serach fields" id="search-fields">
+  loadBooks() {
+    this.setState({
+      error: null,
+      loading: true
+    });
+    return fetch(`${API_BASE_URL}/books`)
+      .then(res => {
+        if (!res.ok) {
+          return Promise.reject(res.statusText);
+        }
+        return res.json();
+      })
+      .then(books => {
+        console.log('Logging here',books);
+          this.setState({
+            loading: false
+          });
+      })
+      .catch(err =>
+        this.setState({
+          error: 'Could not load books',
+          loading: false
+        })
+      );
+  }
+
+  render() {
+    return (
+      <div>
+      <section className="searchbar">
+        <h3>Catalog Quick Search</h3>
+        <form className="searchform" action="">
+          <select name="serach fields" id="search-fields">
             <option value="All Fields">All Fields</option>
             <option value="Author">Author</option>
             <option value="Title">Title</option>
             <option value="Subject">Subject</option>
-        </select>
-        <input type="text"/>
-        <button>Search</button>
-      </form>
-    </section>
-)
+          </select>
+          <input type="text" />
+          <button>Search</button>
+        </form>
+      </section>
+      <SearchResult>
+        books 
+      </SearchResult>
+        </div>
+    );
+  }
 }

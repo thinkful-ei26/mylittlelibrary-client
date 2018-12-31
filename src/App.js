@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import SearchResult from './components/search-result';
 import SearchBar from './components/searchbar';
 import LibraryInformation from './components/library-information';
 import Header from './components/header';
@@ -28,7 +27,6 @@ class App extends React.Component {
           <body>
             <Header />
             <SearchBar />
-            <SearchResult />
             <Footer />
           </body>
         </div>
