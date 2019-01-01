@@ -60,20 +60,19 @@ const bookList = fetch(`${API_BASE_URL}/books`)
   render() {
     // console.log('LOGGING',this.state.books)
     const bookList = this.state.books;
-    const bookListElement = bookList.map(book =>(
+    const bookListElement = bookList.map((book, index) =>(
   
-    <section className="featured-book">
-    <section class="featured-book-information">
+ 
+    <section key={index}>
   
-      <ul class="title">
+      <ul>
         <li>{book.title}</li>
         <li>{book.author}</li>
       </ul>
-    </section>
-    <section class="featured-book-actions">
+   
+  
       <button>Details</button> <button> <a href="login.html">Hold</a></button>
-    </section>
-  </section>
+ </section>
     )
    
     )

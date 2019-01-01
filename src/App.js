@@ -24,11 +24,11 @@ class App extends React.Component {
   render() {
       return (
         <div>
-          <body>
+         
             <Header />
             <SearchBar />
             <Footer />
-          </body>
+     
         </div>
       );
     
