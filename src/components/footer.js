@@ -1,10 +1,14 @@
 import React from 'react';
-import './css/footer.css'
+import { Link, Route } from 'react-router-dom';
+import './css/footer.css';
 
 export default function Footer() {
   return (
-    <footer>
-      <div>Database</div>
-    </footer>
+      <footer>
+        <Link to={'./staff-view'}>
+          <div>Database</div>
+        </Link>
+     
+      </footer>
   );
 }

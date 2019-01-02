@@ -1,5 +1,5 @@
 import React from 'react';
-import LibraryInformation from './library-information'
+import {Link} from 'react-router-dom';
 import './css/header.css';
 
 export default function Header() {
@@ -9,13 +9,13 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <a href="search.html">Home</a>
+            <Link to={'/'}>Home</Link>
           </li>
           <li>
-            <a href="login.html">Log in</a>
+             <a href="">Log in</a>
           </li>
           <li>
-            <a href="login.html">Library Information</a>
+              <a href="">Library Information</a>
           </li>
         </ul>
       </nav>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import EditView from './edit-view';
 import AddView from './add-view';
 
@@ -10,34 +11,40 @@ export default function StaffView() {
       <form action="">
         <p>
           <button>
-            <a href="addbook.html">Add Books to catalog</a>
+            <Link to={'./add-view'}>Add Books to catalog</Link>
           </button>
         </p>
-        <select name="" id="">
-          <option value="allFields">All Fields</option>
-          <option value="author">Author</option>
-          <option value="title">Title</option>
-          <option value="subject">Subject</option>
-        </select>
-        <input type="text" /> <button>Search</button>
+        <fieldset>
+          <legend>Search the catalog</legend>
+          <select name="" id="">
+            <option value="allFields">All Fields</option>
+            <option value="author">Author</option>
+            <option value="title">Title</option>
+            <option value="subject">Subject</option>
+          </select>
+          <input type="text" /> <button>Search</button>
+        </fieldset>
       </form>
       <section class="search-result" />
       <p>
         UNDER CONSTRUCTION. This will be the interface for staff to perform CRUD
         operations on db.
       </p>
-      <ul class="title">
-        <li>Sample display title,</li>
-        <li>Sample display author</li>
-      </ul>
-      <button>
-        {' '}
-        <a href="edit.html">Edit</a>
-      </button>{' '}
-      <button>
-        {' '}
-        <a href="login.html">Delete</a>
-      </button>
+      <form action="">
+        <fieldset>
+          <legend>Sample Search Output</legend>
+          <ul class="title">
+            <li>Sample display title,</li>
+            <li>Sample display author</li>
+          </ul>
+          <button>
+            <Link to={'./edit-view'}>Edit</Link>
+          </button>
+          <button>
+            Delete
+          </button>
+        </fieldset>
+      </form>
     </div>
   );
 }
