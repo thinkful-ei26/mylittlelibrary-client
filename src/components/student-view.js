@@ -1,9 +1,7 @@
 import React from 'react';
 import { API_BASE_URL } from '../config';
-import SearchResult from './search-result';
-import './searchbar.css';
 
-export default class SearchBar extends React.Component {
+export default class StudentView extends React.Component {
   constructor(props) {
     super(props);
 
@@ -77,7 +75,7 @@ const bookList = fetch(`${API_BASE_URL}/books`)
    
     )
     // console.log('LOG STATE',this.state.text)
-    console.log('bookListElement',bookListElement)
+    // console.log('bookListElement',bookListElement)
     return (
       <div>
       <section className="searchbar">

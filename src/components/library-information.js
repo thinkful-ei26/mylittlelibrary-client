@@ -1,5 +1,5 @@
 import React from 'react';
-import './library-information.css';
+import './css/library-information.css';
 
 export default function LibraryInformation(){
     return(
