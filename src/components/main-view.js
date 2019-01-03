@@ -1,7 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Router, Link, Switch } from 'react-router-dom';
 import { API_BASE_URL } from '../config';
-import StaffView from './staff-view';
 
 export default class MainView extends React.Component {
   constructor(props) {
@@ -11,26 +9,83 @@ export default class MainView extends React.Component {
       books: [],
       error: null,
       loading: false,
-      text: ''
+      text: '',
+      title:''
     };
   }
+
   componentWillMount() {
     this.loadBooks();
   }
 
   onSubmit(event) {
     event.preventDefault();
-    const text = this.textInput.value.trim();
-    this.setState({ text });
+    const title = this.textInput.value.trim();
+    this.setState({ title });
     this.textInput.value = '';
+    console.log('LOGGING title',title)
+  
+  return fetch(`${API_BASE_URL}/books?title=${title}`)
+      .then(res => {
+        if (!res.ok) {
+          return Promise.reject(res.statusText);
+        }
+        return res.json();
+      })
+      .then(books => {
+        this.setState({
+          books: books,
+          loading: false
+        });
+      })
+      .catch(err =>
+        this.setState({
+          error: 'Could not load books',
+          loading: false
+        })
+      );
+
+
+
+
   }
+
+  // onClick(event) {
+  //   event.preventDefault();
+  //   const title = this.titleInput.value.trim();
+  //   this.setState({title});
+  //  console.log('LOGGING title', title);
+  // }
+
   loadBooks() {
     this.setState({
       error: null,
       loading: true
     });
+  
 
-    return fetch(`${API_BASE_URL}/books`)
+    // return fetch(`${API_BASE_URL}/books`)
+    //   .then(res => {
+    //     if (!res.ok) {
+    //       return Promise.reject(res.statusText);
+    //     }
+    //     return res.json();
+    //   })
+    //   .then(books => {
+    //     this.setState({
+    //       books: books,
+    //       loading: false
+    //     });
+    //   })
+    //   .catch(err =>
+    //     this.setState({
+    //       error: 'Could not load books',
+    //       loading: false
+    //     })
+    //   );
+
+/**********************TEST FETCH */
+return fetch(`${API_BASE_URL}/books?title=title`)
       .then(res => {
         if (!res.ok) {
           return Promise.reject(res.statusText);
@@ -50,11 +105,12 @@ export default class MainView extends React.Component {
         })
       );
   }
-  generateBookList() {
-    const bookList = fetch(`${API_BASE_URL}/books`);
-  }
+  // generateBookList() {
+  //   const bookList = fetch(`${API_BASE_URL}/books`);
+  // }
 
   render() {
+    console.log(this.state);
     const bookList = this.state.books;
     const bookListElement = bookList.map((book, index) => (
       <section key={index}>
@@ -70,22 +126,22 @@ export default class MainView extends React.Component {
       </section>
     ));
     return (
-        <div>
-          <section className="searchbar">
-            <h3>Catalog Quick Search</h3>
-            <form className="searchform" onSubmit={e => this.onSubmit(e)}>
-              <select name="serach fields" id="search-fields">
-                <option value="All Fields">All Fields</option>
-                <option value="Author">Author</option>
-                <option value="Title">Title</option>
-                <option value="Subject">Subject</option>
-              </select>
-              <input type="text" ref={input => (this.textInput = input)} />
-              <button>Search</button>
-            </form>
-          </section>
-          <div className="outputarea">{bookListElement}</div>
-        </div>
+      <div>
+        <section className="searchbar">
+          <h3>Catalog Quick Search</h3>
+          <form className="searchform" onSubmit={e => this.onSubmit(e)}>
+            <select name="serach fields" id="search-fields">
+              <option value="All Fields">All Fields</option>
+              <option value="Author">Author</option>
+              <option value="Title">Title</option>
+              <option value="Subject">Subject</option>
+            </select>
+            <input type="text" ref={input => (this.textInput = input)} />
+            <button>Search</button>
+          </form>
+        </section>
+        <div className="outputarea">{bookListElement}</div>
+      </div>
     );
   }
 }
