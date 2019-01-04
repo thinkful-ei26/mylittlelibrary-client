@@ -10,7 +10,7 @@ return (
         <fieldset>
             <legend>Add Books to catalog</legend>
             <form action="" className="staff-crud-form">
-                  <p><label for="title">Title:</label><input type="text"/></p>
+                  <p><label for="Title">Title:</label><input type="text"/></p>
                   <p><label for="Author">Author:</label><input type="text"/></p>
                   <p><label for="Genre">Genre:</label><input type="text"/></p>
                   <p><label for="isbn">ISBN:</label><input type="text"/></p>
