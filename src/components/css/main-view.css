@@ -1,0 +1,35 @@
+li {
+    list-style: none;
+    padding: 1rem;
+}
+
+.searchbar{
+    text-align: center;
+    padding:1rem;
+}
+.searchform{
+    padding: 2rem;
+}
+ select,input{
+    margin-right:1rem;
+    
+}
+.outputarea{
+display:inline-block;
+width: 50%;
+/* flex-direction: row; */
+}
+
+.outputarea ul{
+    margin: 1rem 1rem 5rem 0;
+    padding: 1rem;
+    float: left;
+}
+
+button{
+    width: 8rem;
+}
+
+.search-result-buttons{
+    margin-top:3rem;
+}

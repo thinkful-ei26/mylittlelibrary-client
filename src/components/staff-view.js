@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import EditView from './edit-view';
-import AddView from './add-view';
 
 // This view will toggle between add and edit views
 export default function StaffView() {
