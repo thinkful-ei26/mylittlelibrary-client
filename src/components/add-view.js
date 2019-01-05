@@ -1,13 +1,15 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import './css/add-edit.css';
+import { required, nonEmpty } from '../validators';
+import Input from './input'
 
 export class AddView extends React.Component {
   onSubmit(values) {
     console.log(values);
-    console.log(this.props.test)
+    console.log(this.props.test);
   }
-  // 
+  //
 
   render() {
     return (
@@ -19,30 +21,41 @@ export class AddView extends React.Component {
             onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
             className="staff-crud-form"
           >
+           
+              <Field
+                name="title"
+                id="title"
+                type="text"
+                component={Input}
+                label="Name"
+                validate={[required, nonEmpty]}
+              />
+              <Field
+                name="author"
+                id="author"
+                type="text"
+                component={Input}
+                label="Author"
+                validate={[required, nonEmpty]}
+              />
+              <Field
+                name="genre"
+                id="genre"
+                type="text"
+                component={Input}
+                label="Genre"
+                validate={[required, nonEmpty]}
+              />
+              <Field
+                name="isbn"
+                id="isbn"
+                type="text"
+                component={Input}
+                label="ISBN"
+                validate={[required, nonEmpty]}
+              />
             <p>
-              <label htmlFor="Title">Title:</label>
-              <Field name="title" id="title" type="text" component="input"/>
-     
-            </p>
-            <p>
-              <label htmlFor="Author">Author:</label>
-              <Field name="author" id="author" type="text" component="input"/>
-     
-            </p>
-            <p>
-              <label htmlFor="Genre">Genre:</label>
-              <Field name="genre" id="genre" type="text" component="input"/>
-     
-            </p>
-            <p>
-              <label htmlFor="isbn">ISBN:</label>
-              <Field name="isbn" id="isbn" type="text" component="input"/>
-     
-            </p>
-            <p>
-              <button type="submit">
-                Add
-              </button>
+              <button type="submit">Add</button>
             </p>
           </form>
         </fieldset>
