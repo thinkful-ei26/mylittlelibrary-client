@@ -1,8 +1,62 @@
 import React from 'react';
+import { API_BASE_URL } from '../config';
 import './css/add-edit.css'
 
 
-export default function AddView(){
+export default class AddView extends React.Component{
+componentDidMount(){
+    this.loadBoard();
+}
+loadBoard() {
+        this.setState({
+            error: null,
+            loading: true
+        });
+        fetch(`${API_BASE_URL}/board`)
+            .then(res => {
+                if (!res.ok) {
+                    return Promise.reject(res.statusText);
+                }
+                return res.json();
+            })
+            .then(board =>
+                this.setState({
+                    lists: board.lists,
+                    loading: false
+                })
+            )
+            .catch(err =>
+                this.setState({
+                    error: 'Could not load board',
+                    loading: false
+                })
+            );
+    }
+
+functionToPost(){
+      function postData(url = `${API_BASE_URL}`, data = {}) {
+    return fetch(url, {
+        method: "POST", 
+        // mode: "cors", 
+        cache: "no-cache", 
+        credentials: "same-origin", 
+        headers: {
+            "Content-Type": "application/json",
+        },
+        redirect: "follow", 
+        referrer: "no-referrer", 
+        body: JSON.stringify(data), 
+    })
+    .then(response => response.json());
+
+
+
+}}
+
+
+render(){
+   
+
 
 return (
   <div>
@@ -20,4 +74,5 @@ return (
 <p>UNDER CONSTRUCTION.</p>
 </div>
 )
+}
 }
