@@ -1,15 +1,56 @@
 import React from 'react';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import './css/add-edit.css';
 import { required, nonEmpty } from '../validators';
 import Input from './input';
 
 export class AddView extends React.Component {
-  onSubmit(values) {
-    console.log(values);
-    console.log(this.props.test);
-  }
-  //
+//   onSubmit(values) {
+//     console.log(values);
+//     console.log(this.props.test);
+//   }
+onSubmit(values) {
+        return fetch('/books/', {
+            method: 'POST',
+            body: JSON.stringify(values),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    if (
+                        res.headers.has('content-type') &&
+                        res.headers
+                            .get('content-type')
+                            .startsWith('application/json')
+                    ) {
+                        return res.json().then(err => Promise.reject(err));
+                    }
+                    return Promise.reject({
+                        code: res.status,
+                        message: res.statusText
+                    });
+                }
+                return;
+            })
+            .then(() => console.log('Submitted with values', values))
+            .catch(err => {
+                const {reason, message, location} = err;
+                if (reason === 'ValidationError') {
+                    return Promise.reject(
+                        new SubmissionError({
+                            [location]: message
+                        })
+                    );
+                }
+                return Promise.reject(
+                    new SubmissionError({
+                        _error: 'Error submitting message'
+                    })
+                );
+            });
+    }
 
   render() {
     return (
@@ -55,7 +96,8 @@ export class AddView extends React.Component {
             />
             <button
               type="submit"
-              disabled={this.props.pristine || this.props.submitting}>
+              disabled={this.props.pristine || this.props.submitting}
+            >
               Add Book
             </button>
           </form>
@@ -66,5 +108,8 @@ export class AddView extends React.Component {
 }
 
 export default reduxForm({
-  form: 'add-view'
+  form: 'add-view',
+  onSubmitFail: (errors, dispatch) =>
+    dispatch(focus('contact', Object.keys(errors)[0]))
 })(AddView);
+
