@@ -2,7 +2,7 @@ import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import './css/add-edit.css';
 import { required, nonEmpty } from '../validators';
-import Input from './input'
+import Input from './input';
 
 export class AddView extends React.Component {
   onSubmit(values) {
@@ -21,42 +21,43 @@ export class AddView extends React.Component {
             onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
             className="staff-crud-form"
           >
-           
-              <Field
-                name="title"
-                id="title"
-                type="text"
-                component={Input}
-                label="Name"
-                validate={[required, nonEmpty]}
-              />
-              <Field
-                name="author"
-                id="author"
-                type="text"
-                component={Input}
-                label="Author"
-                validate={[required, nonEmpty]}
-              />
-              <Field
-                name="genre"
-                id="genre"
-                type="text"
-                component={Input}
-                label="Genre"
-                validate={[required, nonEmpty]}
-              />
-              <Field
-                name="isbn"
-                id="isbn"
-                type="text"
-                component={Input}
-                label="ISBN"
-                validate={[required, nonEmpty]}
-              />
-            <p>
-              <button type="submit">Add</button>
-            </p>
+            <Field
+              name="title"
+              id="title"
+              type="text"
+              component={Input}
+              label="Name"
+              validate={[required, nonEmpty]}
+            />
+            <Field
+              name="author"
+              id="author"
+              type="text"
+              component={Input}
+              label="Author"
+              validate={[required, nonEmpty]}
+            />
+            <Field
+              name="genre"
+              id="genre"
+              type="text"
+              component={Input}
+              label="Genre"
+              validate={[required, nonEmpty]}
+            />
+            <Field
+              name="isbn"
+              id="isbn"
+              type="text"
+              component={Input}
+              label="ISBN"
+              validate={[required, nonEmpty]}
+            />
+            <button
+              type="submit"
+              disabled={this.props.pristine || this.props.submitting}>
+              Add Book
+            </button>
           </form>
         </fieldset>
       </div>
