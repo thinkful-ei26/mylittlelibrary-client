@@ -23,7 +23,7 @@ export default function StaffView() {
           <input type="text" /> <button>Search</button>
         </fieldset>
       </form>
-      <section class="search-result" />
+      <section className="search-result" />
       <p>
         UNDER CONSTRUCTION. This will be the interface for staff to perform CRUD
         operations on db.
@@ -31,7 +31,7 @@ export default function StaffView() {
       <form action="">
         <fieldset>
           <legend>Sample Search Output</legend>
-          <ul class="title">
+          <ul className="title">
             <li>Sample display title,</li>
             <li>Sample display author</li>
           </ul>

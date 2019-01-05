@@ -13,7 +13,7 @@ export default class MainView extends React.Component {
       text: ''
     };
   }
-
+// make another method nested onAddViewSubmit(event){} similar to onSubmit pass down to props
   onSubmit(event) {
     event.preventDefault();
     let select = this.searchFields.value;
