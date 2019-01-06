@@ -1,58 +1,56 @@
 import React from 'react';
-import { reduxForm, Field, SubmissionError, focus} from 'redux-form';
+import { reduxForm, Field, SubmissionError, focus } from 'redux-form';
 import './css/add-edit.css';
 import { required, nonEmpty } from '../validators';
 import Input from './input';
 
 export class AddView extends React.Component {
-//   onSubmit(values) {
-//     console.log(values);
-//     console.log(this.props.test);
-//   }
-onSubmit(values) {
-    console.log('LOG VALUES',values)
+  //   onSubmit(values) {
+  //     console.log(values);
+  //     console.log(this.props.test);
+  //   }
+  onSubmit(values) {
+    console.log('LOG VALUES', values);
     // console.log('LOG this.props', this.props)
-        return fetch('/books/', {
-            method: 'POST',
-            body: JSON.stringify(values),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(res => {
-                if (!res.ok) {
-                    if (
-                        res.headers.has('content-type') &&
-                        res.headers
-                            .get('content-type')
-                            .startsWith('application/json')
-                    ) {
-                        return res.json().then(err => Promise.reject(err));
-                    }
-                    return Promise.reject({
-                        code: res.status,
-                        message: res.statusText
-                    });
-                }
-                return;
+    return fetch('http://127.0.0.1:8080/books', {
+      method: 'POST',
+      body: JSON.stringify(values),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => {
+        if (!res.ok) {
+          if (
+            res.headers.has('content-type') &&
+            res.headers.get('content-type').startsWith('application/json')
+          ) {
+            return res.json().then(err => Promise.reject(err));
+          }
+          return Promise.reject({
+            code: res.status,
+            message: res.statusText
+          });
+        }
+        return;
+      })
+      .then(() => console.log('Submitted with values', values))
+      .catch(err => {
+        const { reason, message, location } = err;
+        if (reason === 'ValidationError') {
+          return Promise.reject(
+            new SubmissionError({
+              [location]: message
             })
-            .then(() => console.log('Submitted with values', values))
-            .catch(err => {
-                const {reason, message, location} = err;
-                if (reason === 'ValidationError') {
-                    return Promise.reject(
-                        new SubmissionError({
-                            [location]: message
-                        })
-                    );
-                }
-                return Promise.reject(
-                    new SubmissionError({
-                        _error: 'Error submitting message'
-                    })
-                );
-            });
-    }
+          );
+        }
+        return Promise.reject(
+          new SubmissionError({
+            _error: 'Error submitting message'
+          })
+        );
+      });
+  }
 
   render() {
     return (
@@ -89,11 +87,27 @@ onSubmit(values) {
               validate={[required, nonEmpty]}
             />
             <Field
+              name="summary"
+              id="summary"
+              type="text"
+              component={Input}
+              label="Summary"
+              //   validate={[required, nonEmpty]}
+            />
+            <Field
               name="isbn"
               id="isbn"
               type="text"
               component={Input}
               label="ISBN"
+              validate={[required, nonEmpty]}
+            />
+            <Field
+              name="status"
+              id="status"
+              type="text"
+              component={Input}
+              label="Status"
               validate={[required, nonEmpty]}
             />
             <button
@@ -114,4 +128,3 @@ export default reduxForm({
   onSubmitFail: (errors, dispatch) =>
     dispatch(focus('contact', Object.keys(errors)[0]))
 })(AddView);
-
