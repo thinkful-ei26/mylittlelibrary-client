@@ -10,6 +10,8 @@ export class AddView extends React.Component {
 //     console.log(this.props.test);
 //   }
 onSubmit(values) {
+    console.log('LOG VALUES',values)
+    // console.log('LOG this.props', this.props)
         return fetch('/books/', {
             method: 'POST',
             body: JSON.stringify(values),
@@ -67,7 +69,7 @@ onSubmit(values) {
               id="title"
               type="text"
               component={Input}
-              label="Name"
+              label="Title"
               validate={[required, nonEmpty]}
             />
             <Field
