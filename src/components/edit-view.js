@@ -1,4 +1,5 @@
 import React from 'react';
+import { API_BASE_URL } from '../config';
 import { reduxForm, Field, SubmissionError, focus } from 'redux-form';
 import './css/add-edit.css';
 import { required, nonEmpty } from '../validators';
@@ -9,12 +10,28 @@ export class EditView extends React.Component {
   //     console.log(values);
   //     console.log(this.props.test);
   //   }
+  captureId() {
+    //capture value of id, turn it into a query string, then pass that value to the PUT method below...
+    // let param = { id: '5c322fa8ca9df625bed83023'};
+    // var queryString = Object.keys(param).map(function(key) {
+    //     return param[key]
+    // }).join('&');
+  }
   onSubmit(values) {
-    console.log('LOG VALUES', values);
-    // console.log('LOG this.props', this.props)
-    return fetch('http://127.0.0.1:8080/books', {
-      method: 'POST',
-      body: JSON.stringify(values),
+    // console.log('LOG VALUES', values.id);
+    const id = values.id;
+    const data = {
+      title: values.title,
+      author: values.author,
+      genre: values.genre,
+      summary: values.summary,
+      isbn: values.isbn,
+      status: values.status
+    };
+    console.log('LOG data', data);
+    return fetch(`${API_BASE_URL}/books/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -62,6 +79,14 @@ export class EditView extends React.Component {
             onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
             className="staff-crud-form"
           >
+            <Field
+              name="id"
+              id="id"
+              type="text"
+              component={Input}
+              label="id"
+              validate={[required, nonEmpty]}
+            />
             <Field
               name="title"
               id="title"
