@@ -12,7 +12,8 @@ COMPONENT HIERARCHY
                              a. input.js (logic for error and message handling)
                     ii. edit-view-input, pass-through to render edit-view component
                              a. edit.view.js
-                    iii delete PENDING
+                    iii delete-view-input
+                             a. delete.view.js
 
 
 

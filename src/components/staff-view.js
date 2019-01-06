@@ -39,7 +39,7 @@ export default function StaffView() {
             <Link to={'./edit-view'}>Edit</Link>
           </button>
           <button>
-            Delete
+           <Link to={'./delete-view'}> Delete</Link>
           </button>
         </fieldset>
       </form>
