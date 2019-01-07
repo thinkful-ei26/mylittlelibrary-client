@@ -44,24 +44,22 @@ export class App extends React.Component {
 
   render() {
     return (
-      
-        <div>
-          <Header />
-          <Route exact path="/staff-view" component={StaffView} />
-          <Route exact path="/" component={MainView} />
-          <Route exact path="/edit-view" component={EditViewInput} />
-          <Route exact path="/add-view" component={AddViewInput} />
-          <Route exact path="/delete-view" component={DeleteViewInput} />
-          <Route exact path="/register" component={RegistrationPage} />
-          <Footer />
-        </div>
-      
+      <div>
+        <Header />
+        <Route exact path="/staff-view" component={StaffView} />
+        <Route exact path="/" component={MainView} />
+        <Route exact path="/edit-view" component={EditViewInput} />
+        <Route exact path="/add-view" component={AddViewInput} />
+        <Route exact path="/delete-view" component={DeleteViewInput} />
+        <Route exact path="/register" component={RegistrationPage} />
+        <Footer />
+      </div>
     );
   }
 }
 const mapStateToProps = state => ({
-    hasAuthToken: state.auth.authToken !== null,
-    loggedIn: state.auth.currentUser !== null
+  hasAuthToken: state.auth.authToken !== null,
+  loggedIn: state.auth.currentUser !== null
 });
 
 // export default App;
