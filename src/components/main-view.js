@@ -13,21 +13,27 @@ export default class MainView extends React.Component {
       text: ''
     };
   }
-// make another method nested onAddViewSubmit(event){} similar to onSubmit pass down to props
+  // make another method nested onAddViewSubmit(event){} similar to onSubmit pass down to props
   onSubmit(event) {
     event.preventDefault();
     let select = this.searchFields.value;
-    const query=this.textInput.value.trim();
-    this.setState({query})
+    const query = this.textInput.value.trim();
+    const re = new RegExp(query, 'i');
+    this.setState({ query });
     this.textInput.value = '';
-    let field = ''
-    if(select === 'author'){
-      field = 'author'
-    }else if(select === 'title'){
-      field = 'title'
-    } else{field = 'genre'}
+    let field = '';
+    if (select === 'author') {
+      field = 'author';
+      // filter. $or[{author: re}];
+    } else if (select === 'title') {
+      field = 'title';
+    } else {
+      field = 'genre';
+    }
 
-  return fetch(`${API_BASE_URL}/books?${field}=${query}`)
+
+    return fetch(`${API_BASE_URL}/books?${field}=${query}`)
+  
       .then(res => {
         if (!res.ok) {
           return Promise.reject(res.statusText);
@@ -70,8 +76,12 @@ export default class MainView extends React.Component {
           <fieldset>
             <legend>Catalog Quick Search</legend>
             <form className="searchform" onSubmit={e => this.onSubmit(e)}>
-              <select name="search-fields" ref={select=>(this.searchFields = select)} id="search-fields">
-                <option value="author" >Author</option>
+              <select
+                name="search-fields"
+                ref={select => (this.searchFields = select)}
+                id="search-fields"
+              >
+                <option value="author">Author</option>
                 <option value="title">Title</option>
                 <option value="genre">Genre</option>
               </select>

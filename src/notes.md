@@ -36,3 +36,14 @@ router.get('/', (req, res, next) => {
       next(err);
     });
 });
+
+
+//************TODO
+1. Improve search function, for case, white space. Use noteful example.
+2. Style, align
+3. Message user on succesful post, put.
+4. Message user on fail.
+5. Message user on validation fail.
+6. Implement staff login/account creation, authentication.
+7. JWT thing
+  
