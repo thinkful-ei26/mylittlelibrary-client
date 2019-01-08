@@ -1,7 +1,7 @@
 * shrink pw length
 * On registration success, render login view. //DONE passed history prop to child reg-form, from parent reg-page 
 * On login success, go to staff view //DONE
-* On login fail, message user
+* On login fail, message user  //DONE
 * On search, render the book id, so that staff can take the id and use it in delete or update. //DONE
 * On search fail, message 'Sorry no match found'.
 * Style, align //DONE

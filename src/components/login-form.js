@@ -15,7 +15,6 @@ export class LoginForm extends React.Component {
         // console.log('LOG',success)
         this.props.history.push("/staff-view");
     })
-    .catch( err=> 'no go')
    
   }
 

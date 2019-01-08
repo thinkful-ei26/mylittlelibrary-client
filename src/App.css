@@ -1,7 +1,11 @@
 body{
-  width: 70%;
+  width: 70vw;
+  height: 100vh;
   text-align: center;
   padding:0 10rem;
+}
+.main {
+  min-height: 100vh;
 }
 a {
   text-decoration: none;
