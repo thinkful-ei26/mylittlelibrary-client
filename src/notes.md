@@ -1,11 +1,16 @@
-Make an API call to mongodb://<dbuser>:<dbpassword>@ds215172.mlab.com:15172/library-app.
-1. From searchbar.js make a fetch call, nested inside loadBooks(), which renders the database on page load.
-2. The fetch method populates the book state, with book objects from the database and makes the objects available generally as the array this.state.books. This array can then be iterated on to extract specific elements, such as book.title or book.author.
-3. in searchbar.js
-    a. The client calls the server (using fetch), the server calls the db. 
-    b. The database is rendered to the output area.
-4. Build a dynamic query such that will return items based on input. For example, searching 'The Wise' should retrun the object{ title:"The Wise Mans Fear (The Kingkiller Chronicle, #2)",
-author:"Mary Sue"}, which i then will format. How? Go find examples. We did this somewhere back...i think in noteful. go looking, and if i don't find anything, put in a ticket. notev4 does a search on notes. It does it on the server route using regex on the get call.
+* shrink pw length
+* On registration success, render login view. //DONE passed history prop to child reg-form, from parent reg-page 
+* On login success, go to staff view //DONE
+* On login fail, message user
+* On search, render the book id, so that staff can take the id and use it in delete or update. //DONE
+* On search fail, message 'Sorry no match found'.
+* Style, align //DONE
+* From resgister page, hide login button //DONE
+
+
+
+
+
 
 router.get('/', (req, res, next) => {
   const { searchTerm, folderId, tagId } = req.query;
@@ -39,11 +44,5 @@ router.get('/', (req, res, next) => {
 
 
 //************TODO
-1. Improve search function, for case, white space. Use noteful example.
-2. Style, align
-3. Message user on succesful post, put.
-4. Message user on fail.
-5. Message user on validation fail.
-6. Implement staff login/account creation, authentication.
-7. JWT thing
+
   

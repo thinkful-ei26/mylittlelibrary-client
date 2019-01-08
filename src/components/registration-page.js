@@ -10,14 +10,21 @@ export function RegistrationPage(props) {
     // if (props.loggedIn) {
     //     return <Redirect to="/dashboard" />;
     // }
+
+
     return (
         <div className="home">
             <h2>Staff Registration</h2>
-            <RegistrationForm />
-            <Link to="/">Login</Link>
+            <RegistrationForm history={props.history} />
+            
+
+            
+            
+            {/* <Link to="/">Login</Link> */}
         </div>
     );
 }
+// propname = ''
 
 const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null

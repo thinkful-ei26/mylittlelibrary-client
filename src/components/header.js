@@ -11,12 +11,12 @@ export default function Header() {
           <li>
             <Link to={'/'}>Home</Link>
           </li>
-          <li>
+          {/* <li>
              <a href="">Log in</a>
           </li>
           <li>
               <a href="">Library Information</a>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </header>
