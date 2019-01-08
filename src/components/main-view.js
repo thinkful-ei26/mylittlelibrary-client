@@ -5,15 +5,14 @@ import './css/main-view.css';
 export default class MainView extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       books: [],
       error: null,
       loading: false,
-      text: ''
+      text: '',
+      query:''
     };
   }
-  // make another method nested onAddViewSubmit(event){} similar to onSubmit pass down to props
   onSubmit(event) {
     event.preventDefault();
     let select = this.searchFields.value;
@@ -31,9 +30,7 @@ export default class MainView extends React.Component {
       field = 'genre';
     }
 
-
     return fetch(`${API_BASE_URL}/books?${field}=${query}`)
-  
       .then(res => {
         if (!res.ok) {
           return Promise.reject(res.statusText);
@@ -55,8 +52,14 @@ export default class MainView extends React.Component {
   }
 
   render() {
+    console.log('LOGG1...', this.state.books)
     const bookList = this.state.books;
-    const bookListElement = bookList.map((book, index) => (
+    if(bookList === []){
+     return bookListElement = 'Sorry, we don\'t have that book yet';
+    //  console.log('anything?', bookListElement);
+    }
+    console.log('LOG2...', bookList)
+    let bookListElement = bookList.map((book, index) => (
       <section key={index} className="search-result">
         <fieldset>
           <legend>Search Results</legend>
@@ -66,11 +69,16 @@ export default class MainView extends React.Component {
             </li>
             <li>By {book.author}</li>
             <li>Status: {book.status}</li>
-             <li>ID: {book.id}</li>
+            <li>ID: {book.id}</li>
           </ul>
         </fieldset>
       </section>
     ));
+
+    // if (bookList === []) {
+    //   return (bookListElement = 'Sorry, no matches');
+    // }
+
     return (
       <div>
         <section className="searchbar">
