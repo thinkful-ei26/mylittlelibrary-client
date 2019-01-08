@@ -10,6 +10,7 @@ import { EditViewInput } from './components/edit-view-input';
 import { AddViewInput } from './components/add-view-input';
 import { DeleteViewInput } from './components/delete-view-input';
 /*NEW REGISTRATION RELATED*/
+import LoginForm from './components/login-form';
 import Dashboard from './components/dashboard';
 import RegistrationPage from './components/registration-page';
 import { refreshAuthToken } from './actions/auth';
@@ -52,6 +53,7 @@ export class App extends React.Component {
         <Route exact path="/add-view" component={AddViewInput} />
         <Route exact path="/delete-view" component={DeleteViewInput} />
         <Route exact path="/register" component={RegistrationPage} />
+        <Route exact path="/login" component={LoginForm} />
         <Footer />
       </div>
     );
