@@ -11,7 +11,7 @@ import { AddViewInput } from './components/add-view-input';
 import { DeleteViewInput } from './components/delete-view-input';
 /*NEW REGISTRATION RELATED*/
 import LoginForm from './components/login-form';
-import Dashboard from './components/dashboard';
+// import Dashboard from './components/dashboard';
 import RegistrationPage from './components/registration-page';
 import { refreshAuthToken } from './actions/auth';
 
