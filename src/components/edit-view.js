@@ -7,13 +7,13 @@ import Input from './input';
 import BackToStaffView from './return-to-staff-view';
 
 export class EditView extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-      this.state={
-        success: false
-      }
-    }
-  
+    this.state = {
+      success: 'default'
+    };
+  }
+
   onSubmit(values) {
     // console.log('LOG VALUES', values.id);
     const id = values.id;
@@ -48,8 +48,10 @@ export class EditView extends React.Component {
         }
         return;
       })
-      .then(() => (console.log('Submitted with values', values)),
-      this.setState({success:true}))
+      .then(
+        () => console.log('Submitted with values', values),
+        this.setState({ success: 'success' })
+      )
       .catch(err => {
         const { reason, message, location } = err;
         if (reason === 'ValidationError') {
@@ -68,11 +70,10 @@ export class EditView extends React.Component {
   }
 
   render() {
-       if(this.state.success){
-      alert('The item has been updated')
-    }else{
-      alert('Item not found')
-    }
+    let resultMessage = '';
+    this.state.success === 'success'
+      ? (resultMessage = 'Item has been updated')
+      : (resultMessage = '');
     return (
       <div>
         <h2> Staff Edit View</h2>
@@ -138,14 +139,14 @@ export class EditView extends React.Component {
               label="Status"
               // validate={[required, nonEmpty]}
             />
-           
+            <div className="result-message">{resultMessage}</div>
             <button
               type="submit"
               disabled={this.props.pristine || this.props.submitting}
             >
               Submit Changes
             </button>
-              <BackToStaffView/>
+            <BackToStaffView />
           </form>
         </fieldset>
       </div>

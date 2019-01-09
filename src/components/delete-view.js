@@ -2,6 +2,7 @@ import React from 'react';
 import { API_BASE_URL } from '../config';
 import { reduxForm, Field, SubmissionError, focus } from 'redux-form';
 import './css/add-edit.css';
+import './css/result-message.css';
 import { required, nonEmpty } from '../validators';
 import Input from './input';
 import BackToStaffView from './return-to-staff-view';
@@ -34,7 +35,6 @@ export class DeleteView extends React.Component {
           return Promise.reject({
             code: res.status,
             message: res.statusText
-            // this.setState({success:'failure'})
           });
         }
         return;
@@ -66,7 +66,7 @@ export class DeleteView extends React.Component {
     let resultMessage = '';
     this.state.success === 'success'
       ? (resultMessage = 'Item has been removed')
-      : (resultMessage = 'Item not found');
+      : (resultMessage = '');
 
     return (
       <div>

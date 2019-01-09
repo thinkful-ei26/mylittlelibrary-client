@@ -1,6 +1,7 @@
 import React from 'react';
 import { reduxForm, Field, SubmissionError, focus } from 'redux-form';
 import './css/add-edit.css';
+import './css/result-message.css';
 import { required, nonEmpty } from '../validators';
 import Input from './input';
 import BackToStaffView from './return-to-staff-view';
@@ -9,7 +10,7 @@ export class AddView extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      success: false
+      success: 'default'
     }
   }
 
@@ -38,7 +39,7 @@ export class AddView extends React.Component {
         return;
       })
       .then(() => (console.log('Submitted with values', values)),
-      this.setState({success:true})
+      this.setState({success:'success'})
       )
       .catch(err => {
         const { reason, message, location } = err;
@@ -58,11 +59,11 @@ export class AddView extends React.Component {
   }
 
   render() {
-       if(this.state.success){
-      alert('The item has been added to the catalog')
-    }else{
-      alert('Item not found')
-    }
+    let resultMessage = '';
+    this.state.success === 'success'
+      ? (resultMessage = 'Item has been added')
+      : (resultMessage = '');
+    
     return (
       <div>
         <h2> Staff Add View</h2>
@@ -120,7 +121,7 @@ export class AddView extends React.Component {
               label="Status"
               validate={[required, nonEmpty]}
             />
-          
+          <div className="result-message">{resultMessage}</div>
             <button
               type="submit"
               disabled={this.props.pristine || this.props.submitting}
