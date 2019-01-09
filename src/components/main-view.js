@@ -17,11 +17,13 @@ export default class MainView extends React.Component {
     event.preventDefault();
     let select = this.searchFields.value;
     const query = this.textInput.value.trim();
+    // const re = new RegExp(query, 'i');
     this.setState({ query });
     this.textInput.value = '';
     let field = '';
     if (select === 'author') {
       field = 'author';
+      // filter. $or[{author: re}];
     } else if (select === 'title') {
       field = 'title';
     } else {
@@ -53,11 +55,10 @@ export default class MainView extends React.Component {
     console.log('LOGG1...', this.state.books)
     const bookList = this.state.books;
     let bookListElement;
-    if(bookList.length === 0){
-     return bookListElement = 'Sorry, we don\'t have that book yet';
+    if(bookList.length ===  0){
+     bookListElement = 'Sorry, we don\'t have that book yet';
     }else{
-    console.log('LOG2...', bookList)
-     bookListElement = bookList.map((book, index) => (
+    let bookListElement = bookList.map((book, index) => (
       <section key={index} className="search-result">
         <fieldset>
           <legend>Search Results</legend>
@@ -73,7 +74,9 @@ export default class MainView extends React.Component {
       </section>
     ));
     }
- 
+
+
+
     return (
       <div>
         <section className="searchbar">
