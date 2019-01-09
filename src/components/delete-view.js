@@ -7,12 +7,12 @@ import Input from './input';
 import BackToStaffView from './return-to-staff-view';
 
 export class DeleteView extends React.Component {
-constructor(props){
-  super(props);
-  this.state={
-    success: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      success: false
+    };
   }
-}
 
   onSubmit(values) {
     // const allWell = 0;
@@ -33,12 +33,14 @@ constructor(props){
           }
           return Promise.reject({
             code: res.status,
-            message: res.statusText,
+            message: res.statusText
           });
         }
         return;
       })
-      .then(() => console.log('Submitted with values', values),
+      .then(
+        () => (console.log('Submitted with values', values),
+        this.setState({ success: true }))
       )
       .catch(err => {
         const { reason, message, location } = err;
@@ -58,10 +60,11 @@ constructor(props){
   }
 
   render() {
-    // console.log(this.res.status)
-    // if(allWell > 0){
+    console.log('LOGGER 2', this.state.success);
+    if(this.state.success){
+      alert('The selected id has been removed from the catalog')
+    }
 
-    // }
     return (
       <div>
         <h2> Delete View</h2>
@@ -79,14 +82,14 @@ constructor(props){
               label="id"
               validate={[required, nonEmpty]}
             />
-            <div className='button-pack'>
-            <BackToStaffView/>
-            <button
-              type="submit"
-              disabled={this.props.pristine || this.props.submitting}
-            >
-              Delete Book
-            </button>
+            <div className="button-pack">
+              <BackToStaffView />
+              <button
+                type="submit"
+                disabled={this.props.pristine || this.props.submitting}
+              >
+                Delete Book
+              </button>
             </div>
           </form>
         </fieldset>
