@@ -1,3 +1,10 @@
+1/9/19 TODO:
+* From add-view delete-view update-view, navigate back to stagg-view (not login-view)
+* From main-view, return 'Sorry, no matches found' message.
+* From add-view. delete-view, update-view message success/failure response to user.
+
+
+1/8/19
 * Shrink pw length
 * On registration success, render login view. //DONE passed history prop to child reg-form, from parent reg-page 
 * On login success, go to staff view //DONE
