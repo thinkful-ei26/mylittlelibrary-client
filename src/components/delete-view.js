@@ -10,7 +10,7 @@ export class DeleteView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      success: false
+      success: 'default'
     };
   }
 
@@ -34,13 +34,16 @@ export class DeleteView extends React.Component {
           return Promise.reject({
             code: res.status,
             message: res.statusText
+            // this.setState({success:'failure'})
           });
         }
         return;
       })
       .then(
-        () => (console.log('Submitted with values', values),
-        this.setState({ success: true }))
+        () => (
+          console.log('Submitted with values', values),
+          this.setState({ success: 'success' })
+        )
       )
       .catch(err => {
         const { reason, message, location } = err;
@@ -60,12 +63,10 @@ export class DeleteView extends React.Component {
   }
 
   render() {
-    console.log('LOGGER 2', this.state.success);
-    if(this.state.success){
-      alert('The selected id has been removed from the catalog')
-    }else{
-      alert('Item not found');
-    }
+    let resultMessage = '';
+    this.state.success === 'success'
+      ? (resultMessage = 'Item has been removed')
+      : (resultMessage = 'Item not found');
 
     return (
       <div>
@@ -84,8 +85,8 @@ export class DeleteView extends React.Component {
               label="Enter book id:"
               validate={[required, nonEmpty]}
             />
+            <div className="result-message">{resultMessage}</div>
             <div className="button-pack">
-              
               <button
                 type="submit"
                 disabled={this.props.pristine || this.props.submitting}

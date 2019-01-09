@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function StaffView() {
   return (
     <div>
-      <h2> Staff View - Will Require Login</h2>
+      <h2> Staff View</h2>
 
       <p>
         <button>
