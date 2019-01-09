@@ -1,0 +1,25 @@
+button {
+    width: 7rem;
+    /* padding: 2rem; */
+    margin: 1rem;   
+}
+
+.error-message{
+    background-color: rgb(221, 215, 215);
+    width: 30vw;
+    border: 0.25px solid grey;
+    margin-left: 30%;
+}
+fieldset{
+    display: inline;
+    width: 100%;
+}
+label{
+    /* margin-top: 15% 0; */
+    /* clear: both; */
+}
+
+.login-form-register{
+    /* display: inline-block; */
+    margin-bottom: 10rem;
+}
