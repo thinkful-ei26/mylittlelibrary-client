@@ -1,5 +1,5 @@
 1/9/19 TODO:
-* From add-view delete-view update-view, navigate back to stagg-view (not login-view)
+* From add-view delete-view update-view, navigate back to stagg-view (not login-view) DONE
 * From main-view, return 'Sorry, no matches found' message.
 * From add-view. delete-view, update-view message success/failure response to user.
 * From delete-view move delete button

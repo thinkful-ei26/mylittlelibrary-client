@@ -7,9 +7,16 @@ import Input from './input';
 import BackToStaffView from './return-to-staff-view';
 
 export class DeleteView extends React.Component {
-  onSubmit(values) {
-    const id = values.id;
+constructor(props){
+  super(props);
+  this.state={
+    success: false
+  }
+}
 
+  onSubmit(values) {
+    // const allWell = 0;
+    const id = values.id;
     return fetch(`${API_BASE_URL}/books/${id}`, {
       method: 'DELETE',
       headers: {
@@ -26,12 +33,13 @@ export class DeleteView extends React.Component {
           }
           return Promise.reject({
             code: res.status,
-            message: res.statusText
+            message: res.statusText,
           });
         }
         return;
       })
-      .then(() => console.log('Submitted with values', values))
+      .then(() => console.log('Submitted with values', values),
+      )
       .catch(err => {
         const { reason, message, location } = err;
         if (reason === 'ValidationError') {
@@ -50,6 +58,10 @@ export class DeleteView extends React.Component {
   }
 
   render() {
+    // console.log(this.res.status)
+    // if(allWell > 0){
+
+    // }
     return (
       <div>
         <h2> Delete View</h2>
