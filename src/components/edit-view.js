@@ -4,6 +4,7 @@ import { reduxForm, Field, SubmissionError, focus } from 'redux-form';
 import './css/add-edit.css';
 import { required, nonEmpty } from '../validators';
 import Input from './input';
+import BackToStaffView from './return-to-staff-view';
 
 export class EditView extends React.Component {
   //   onSubmit(values) {
@@ -135,6 +136,7 @@ export class EditView extends React.Component {
               label="Status"
               validate={[required, nonEmpty]}
             />
+             <BackToStaffView/>
             <button
               type="submit"
               disabled={this.props.pristine || this.props.submitting}
