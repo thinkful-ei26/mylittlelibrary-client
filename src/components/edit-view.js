@@ -7,17 +7,13 @@ import Input from './input';
 import BackToStaffView from './return-to-staff-view';
 
 export class EditView extends React.Component {
-  //   onSubmit(values) {
-  //     console.log(values);
-  //     console.log(this.props.test);
-  //   }
-  captureId() {
-    //capture value of id, turn it into a query string, then pass that value to the PUT method below...
-    // let param = { id: '5c322fa8ca9df625bed83023'};
-    // var queryString = Object.keys(param).map(function(key) {
-    //     return param[key]
-    // }).join('&');
-  }
+  constructor(props){
+    super(props);
+      this.state={
+        success: false
+      }
+    }
+  
   onSubmit(values) {
     // console.log('LOG VALUES', values.id);
     const id = values.id;
@@ -52,7 +48,8 @@ export class EditView extends React.Component {
         }
         return;
       })
-      .then(() => console.log('Submitted with values', values))
+      .then(() => (console.log('Submitted with values', values)),
+      this.setState({success:true}))
       .catch(err => {
         const { reason, message, location } = err;
         if (reason === 'ValidationError') {
@@ -71,6 +68,11 @@ export class EditView extends React.Component {
   }
 
   render() {
+       if(this.state.success){
+      alert('The item has been updated')
+    }else{
+      alert('Item not found')
+    }
     return (
       <div>
         <h2> Staff Edit View</h2>
@@ -86,7 +88,7 @@ export class EditView extends React.Component {
               type="text"
               component={Input}
               label="id"
-              validate={[required, nonEmpty]}
+              // validate={[required, nonEmpty]}
             />
             <Field
               name="title"
@@ -94,7 +96,7 @@ export class EditView extends React.Component {
               type="text"
               component={Input}
               label="Title"
-              validate={[required, nonEmpty]}
+              // validate={[required, nonEmpty]}
             />
             <Field
               name="author"
@@ -102,7 +104,7 @@ export class EditView extends React.Component {
               type="text"
               component={Input}
               label="Author"
-              validate={[required, nonEmpty]}
+              // validate={[required, nonEmpty]}
             />
             <Field
               name="genre"
@@ -110,7 +112,7 @@ export class EditView extends React.Component {
               type="text"
               component={Input}
               label="Genre"
-              validate={[required, nonEmpty]}
+              // validate={[required, nonEmpty]}
             />
             <Field
               name="summary"
@@ -126,7 +128,7 @@ export class EditView extends React.Component {
               type="text"
               component={Input}
               label="ISBN"
-              validate={[required, nonEmpty]}
+              // validate={[required, nonEmpty]}
             />
             <Field
               name="status"
@@ -134,15 +136,16 @@ export class EditView extends React.Component {
               type="text"
               component={Input}
               label="Status"
-              validate={[required, nonEmpty]}
+              // validate={[required, nonEmpty]}
             />
-             <BackToStaffView/>
+           
             <button
               type="submit"
               disabled={this.props.pristine || this.props.submitting}
             >
-              Edit Book
+              Submit Changes
             </button>
+              <BackToStaffView/>
           </form>
         </fieldset>
       </div>

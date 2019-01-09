@@ -1,8 +1,10 @@
 1/9/19 TODO:
 * From add-view delete-view update-view, navigate back to stagg-view (not login-view) DONE
-* From main-view, return 'Sorry, no matches found' message.
+* From main-view, return 'Sorry, no matches found' message. DONE
 * From add-view. delete-view, update-view message success/failure response to user.
 * From delete-view move delete button
+* Build logout from staff-view
+* Reset input fields after submissions
 
 
 1/8/19

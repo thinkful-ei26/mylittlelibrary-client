@@ -6,13 +6,15 @@ import Input from './input';
 import BackToStaffView from './return-to-staff-view';
 
 export class AddView extends React.Component {
-  //   onSubmit(values) {
-  //     console.log(values);
-  //     console.log(this.props.test);
-  //   }
+  constructor(props){
+    super(props);
+    this.state={
+      success: false
+    }
+  }
+
   onSubmit(values) {
     console.log('LOG VALUES', values);
-    // console.log('LOG this.props', this.props)
     return fetch('http://127.0.0.1:8080/books', {
       method: 'POST',
       body: JSON.stringify(values),
@@ -35,7 +37,9 @@ export class AddView extends React.Component {
         }
         return;
       })
-      .then(() => console.log('Submitted with values', values))
+      .then(() => (console.log('Submitted with values', values)),
+      this.setState({success:true})
+      )
       .catch(err => {
         const { reason, message, location } = err;
         if (reason === 'ValidationError') {
@@ -54,6 +58,11 @@ export class AddView extends React.Component {
   }
 
   render() {
+       if(this.state.success){
+      alert('The item has been added to the catalog')
+    }else{
+      alert('Item not found')
+    }
     return (
       <div>
         <h2> Staff Add View</h2>
@@ -111,13 +120,14 @@ export class AddView extends React.Component {
               label="Status"
               validate={[required, nonEmpty]}
             />
-             <BackToStaffView/>
+          
             <button
               type="submit"
               disabled={this.props.pristine || this.props.submitting}
             >
-              Add Book
+              Add Book to Catalog
             </button>
+               <BackToStaffView/>
           </form>
         </fieldset>
       </div>

@@ -63,6 +63,8 @@ export class DeleteView extends React.Component {
     console.log('LOGGER 2', this.state.success);
     if(this.state.success){
       alert('The selected id has been removed from the catalog')
+    }else{
+      alert('Item not found');
     }
 
     return (
@@ -79,17 +81,18 @@ export class DeleteView extends React.Component {
               id="id"
               type="text"
               component={Input}
-              label="id"
+              label="Enter book id:"
               validate={[required, nonEmpty]}
             />
             <div className="button-pack">
-              <BackToStaffView />
+              
               <button
                 type="submit"
                 disabled={this.props.pristine || this.props.submitting}
               >
-                Delete Book
+                Delete Book from Catalog
               </button>
+              <BackToStaffView />
             </div>
           </form>
         </fieldset>
