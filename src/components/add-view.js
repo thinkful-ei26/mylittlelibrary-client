@@ -127,7 +127,7 @@ export class AddView extends React.Component {
                 type="submit"
                 disabled={this.props.pristine || this.props.submitting}
               >
-                Delete Book from Catalog
+               Add Item to Catalog
               </button>
               <BackToStaffView />
             </div>

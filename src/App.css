@@ -3,7 +3,7 @@ body{
   padding:0 10rem;
 }
 .main {
-  /* min-height: 5vh; */
+  height: 100vh;
 }
 a {
   text-decoration: none;
