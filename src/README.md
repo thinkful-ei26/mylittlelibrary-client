@@ -1,4 +1,6 @@
-My Little Library is an inventory management tool for teachers. It is meant to give teachers a way to record and track the movement of educational materials in a student group. Picture a high school biology teacher, with a closet full of supplemental teaching aides, such as models, posters, flash cards, books and other media. This is the target user.
+My Little Library is an inventory management tool for teachers. It is meant to give teachers a way to record and track the movement of educational materials in a student group. Picture a high school or elementary school teacher, with a closet full of supplemental teaching aides, such as models, posters, flash cards, books and other media. This is the target user.
+
+The app is deployed at https://obscure-ridge-45179.herokuapp.com/
 
  In this first prototype My Little Library is configured to work with print material. It could easily extend to other resources.
 
@@ -9,14 +11,13 @@ My Little Library is an inventory management tool for teachers. It is meant to g
 
  A teacher can perform the following actions,
 1. Create an account with user credential.
-2. Access a restricted few upon login.
-3. Add new items to the catalog
-4. Update items in the catalog
-5. Remove items from the catalog
+2. Access a restricted view upon login.
+3. Add new items to the catalog.
+4. Update items in the catalog.
+5. Remove items from the catalog.
 
 
 
- Planned extensions include
- 1. Giving the
+ My Little App uses React and Redux on the front end, and a Mongo database on the back end, configured with Mongoose.
 
- My Little App uses React and Redux on the front end, and 
+ 
