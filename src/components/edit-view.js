@@ -3,7 +3,6 @@ import { API_BASE_URL } from '../config';
 import { reduxForm, Field, SubmissionError, focus } from 'redux-form';
 import './css/add-edit.css';
 import './css/result-message.css'
-import { required, nonEmpty } from '../validators';
 import Input from './input';
 import BackToStaffView from './return-to-staff-view';
 
@@ -146,7 +145,7 @@ export class EditView extends React.Component {
                 type="submit"
                 disabled={this.props.pristine || this.props.submitting}
               >
-                Delete Book from Catalog
+                Update Book Information 
               </button>
               <BackToStaffView />
             </div>

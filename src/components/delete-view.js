@@ -16,7 +16,6 @@ export class DeleteView extends React.Component {
   }
 
   onSubmit(values) {
-    // const allWell = 0;
     const id = values.id;
     return fetch(`${API_BASE_URL}/books/${id}`, {
       method: 'DELETE',

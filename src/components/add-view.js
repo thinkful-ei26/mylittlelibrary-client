@@ -1,4 +1,5 @@
 import React from 'react';
+import { API_BASE_URL } from '../config';
 import { reduxForm, Field, SubmissionError, focus } from 'redux-form';
 import './css/add-edit.css';
 import './css/result-message.css';
@@ -7,16 +8,16 @@ import Input from './input';
 import BackToStaffView from './return-to-staff-view';
 
 export class AddView extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       success: 'default'
-    }
+    };
   }
 
   onSubmit(values) {
-    console.log('LOG VALUES', values);
-    return fetch('http://127.0.0.1:8080/books', {
+
+    return fetch(`${API_BASE_URL}/books`, {
       method: 'POST',
       body: JSON.stringify(values),
       headers: {
@@ -38,8 +39,9 @@ export class AddView extends React.Component {
         }
         return;
       })
-      .then(() => (console.log('Submitted with values', values)),
-      this.setState({success:'success'})
+      .then(
+        () => console.log('Submitted with values', values),
+        this.setState({ success: 'success' })
       )
       .catch(err => {
         const { reason, message, location } = err;
@@ -62,14 +64,14 @@ export class AddView extends React.Component {
     let resultMessage = '';
     this.state.success === 'success'
       ? (resultMessage = 'Item has been added')
-      : (resultMessage = '');
-    
+      : (resultMessage = 'Something went wrong');
+
     return (
       <div class="add-view">
         <h2> Staff Add View</h2>
         <fieldset>
           <legend>Add Books to catalog</legend>
-          <form 
+          <form
             onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
             className="staff-crud-form"
           >
@@ -121,13 +123,13 @@ export class AddView extends React.Component {
               label="Status"
               validate={[required, nonEmpty]}
             />
-          <div className="result-message">{resultMessage}</div>
-           <div className="button-pack">
+            <div className="result-message">{resultMessage}</div>
+            <div className="button-pack">
               <button
                 type="submit"
                 disabled={this.props.pristine || this.props.submitting}
               >
-               Add Item to Catalog
+                Add Item to Catalog
               </button>
               <BackToStaffView />
             </div>
