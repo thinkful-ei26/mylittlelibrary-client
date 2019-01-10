@@ -23,7 +23,6 @@ export default class MainView extends React.Component {
     let field = '';
     if (select === 'author') {
       field = 'author';
-      // filter. $or[{author: re}];
     } else if (select === 'title') {
       field = 'title';
     } else {

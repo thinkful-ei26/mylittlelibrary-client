@@ -37,7 +37,6 @@ export class LoginForm extends React.Component {
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
         >
           {error} 
-          <fieldset>
            
               <label htmlFor="username">Username</label>
               <Field
@@ -58,7 +57,6 @@ export class LoginForm extends React.Component {
                 validate={[required, nonEmpty]}
               />
             
-          </fieldset>
 
           <button
             className="login-form-button"
@@ -68,7 +66,7 @@ export class LoginForm extends React.Component {
           </button>
         </form>
         <Link to="/register">
-          <button className="login-form-register">Register</button>
+          <button className="login-form-register">Register New User</button>
         </Link>
       </div>
     );

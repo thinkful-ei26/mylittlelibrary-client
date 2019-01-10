@@ -1,11 +1,14 @@
 1/9/19 TODO:
-* From add-view delete-view update-view, navigate back to stagg-view (not login-view) DONE
-* From main-view, return 'Sorry, no matches found' message. DONE
-* From add-view. delete-view, update-view message success/failure response to user. DONE
+
 * From delete-view move delete button
 * Build logout from staff-view
 * Reset input fields after submissions
 * Add enum drop down to edit-view
+
+* From add-view delete-view update-view, navigate back to stagg-view (not login-view) DONE
+* From main-view, return 'Sorry, no matches found' message. DONE
+* From add-view. delete-view, update-view message success/failure response to user. DONE
+
 * Add search to CRUD vies. DONE
 
 

@@ -5,9 +5,11 @@ header{
     padding: 5%;
 }
 nav {
-    position: absolute;
-    right:-12%;
-    top: -2%;
+    float: right;
+    margin-top: -200px;
+    /* position: absolute; */
+    /* right:-12%; */
+    /* top: -2%; */
 }
 nav ul li {
     display: inline-block;
