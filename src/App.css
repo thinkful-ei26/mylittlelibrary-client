@@ -23,11 +23,9 @@ nav .libraryinformation {
 }
 
 .outputarea{
-margin: 5rem;
+margin: 1rem;
 padding: 2rem;
 text-align:center;
-background-color:whitesmoke;
-min-height: 10rem;
 }
 
 .searchbar {

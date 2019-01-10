@@ -1,20 +1,22 @@
 header{
     background-color: rgb(221, 215, 215);
-    height: 5%;
+    /* height: 5%; */
     text-align: center;
-    padding: 5%;
+    padding: 2%;
 }
 nav {
     float: right;
-    margin-top: -200px;
-    /* position: absolute; */
-    /* right:-12%; */
-    /* top: -2%; */
+    margin-top: -10rem;
+
 }
 nav ul li {
     display: inline-block;
     padding: 1rem;  
 }
 header {
-    width: 100%;
+    /* margin: 0; */
+}
+img {
+    margin-bottom: -1rem;
+    width: 70%;
 }

@@ -6,6 +6,8 @@ export default function Header() {
   return (
     <header>
       <h1>My Little Library</h1>
+      <img src="http://www.ctwpl.info/images/menu/topbannerwide.jpg" alt="a public library facade"/>
+
       <nav>
         <ul>
           <li>

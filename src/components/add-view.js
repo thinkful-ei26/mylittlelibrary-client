@@ -65,11 +65,11 @@ export class AddView extends React.Component {
       : (resultMessage = '');
     
     return (
-      <div>
+      <div class="add-view">
         <h2> Staff Add View</h2>
         <fieldset>
           <legend>Add Books to catalog</legend>
-          <form
+          <form 
             onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
             className="staff-crud-form"
           >
@@ -122,13 +122,15 @@ export class AddView extends React.Component {
               validate={[required, nonEmpty]}
             />
           <div className="result-message">{resultMessage}</div>
-            <button
-              type="submit"
-              disabled={this.props.pristine || this.props.submitting}
-            >
-              Add Book to Catalog
-            </button>
-               <BackToStaffView/>
+           <div className="button-pack">
+              <button
+                type="submit"
+                disabled={this.props.pristine || this.props.submitting}
+              >
+                Delete Book from Catalog
+              </button>
+              <BackToStaffView />
+            </div>
           </form>
         </fieldset>
       </div>

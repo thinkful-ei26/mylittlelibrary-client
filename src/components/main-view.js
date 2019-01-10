@@ -17,7 +17,6 @@ export default class MainView extends React.Component {
     event.preventDefault();
     let select = this.searchFields.value;
     const query = this.textInput.value.trim();
-    // const re = new RegExp(query, 'i');
     this.setState({ query });
     this.textInput.value = '';
     let field = '';
@@ -73,6 +72,8 @@ export default class MainView extends React.Component {
       </section>
     ));
     }
+
+
 
     return (
       <div>
