@@ -6,6 +6,7 @@ import './css/result-message.css';
 import { required, nonEmpty } from '../validators';
 import Input from './input';
 import BackToStaffView from './return-to-staff-view';
+import { reset } from 'redux-form';
 
 export class DeleteView extends React.Component {
   constructor(props) {
@@ -36,6 +37,7 @@ export class DeleteView extends React.Component {
             message: res.statusText
           });
         }
+         this.props.dispatch(reset('delete-view'));
         return;
       })
       .then(

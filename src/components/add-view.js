@@ -6,6 +6,7 @@ import './css/result-message.css';
 import { required, nonEmpty } from '../validators';
 import Input from './input';
 import BackToStaffView from './return-to-staff-view';
+import { reset } from 'redux-form';
 
 export class AddView extends React.Component {
   constructor(props) {
@@ -16,7 +17,6 @@ export class AddView extends React.Component {
   }
 
   onSubmit(values) {
-
     return fetch(`${API_BASE_URL}/books`, {
       method: 'POST',
       body: JSON.stringify(values),
@@ -37,6 +37,9 @@ export class AddView extends React.Component {
             message: res.statusText
           });
         }
+        console.log('Test string')
+        this.props.dispatch(reset('add-view'));
+
         return;
       })
       .then(
@@ -105,7 +108,6 @@ export class AddView extends React.Component {
               type="text"
               component={Input}
               label="Summary"
-              //   validate={[required, nonEmpty]}
             />
             <Field
               name="isbn"

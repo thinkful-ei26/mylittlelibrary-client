@@ -5,6 +5,7 @@ import './css/add-edit.css';
 import './css/result-message.css'
 import Input from './input';
 import BackToStaffView from './return-to-staff-view';
+import { reset } from 'redux-form';
 
 export class EditView extends React.Component {
   constructor(props) {
@@ -46,6 +47,7 @@ export class EditView extends React.Component {
             message: res.statusText
           });
         }
+         this.props.dispatch(reset('edit-view'));
         return;
       })
       .then(
