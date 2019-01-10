@@ -64,7 +64,7 @@ export class AddView extends React.Component {
     let resultMessage = '';
     this.state.success === 'success'
       ? (resultMessage = 'Item has been added')
-      : (resultMessage = 'Something went wrong');
+      : (resultMessage = '');
 
     return (
       <div class="add-view">

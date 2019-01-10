@@ -50,7 +50,6 @@ export default class MainView extends React.Component {
   }
 
   render() {
-    console.log('LOGG1...', this.state.books)
     const bookList = this.state.books;
     let bookListElement;
     if(bookList.length ===  0){
@@ -72,8 +71,6 @@ export default class MainView extends React.Component {
       </section>
     ));
     }
-
-
 
     return (
       <div>

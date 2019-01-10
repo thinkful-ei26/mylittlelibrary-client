@@ -1,6 +1,5 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
-// import {Redirect} from 'react-router';
 import { Link } from 'react-router-dom';
 import Input from './input';
 import { login } from '../actions/auth';
@@ -12,10 +11,7 @@ export class LoginForm extends React.Component {
     return (
       this.props
         .dispatch(login(values.username, values.password))
-        //if login succesful render staff-view.js
         .then(success => {
-          // return <Redirect to='/staff-view' />;
-          // console.log('LOG',success)
           this.props.history.push('/staff-view');
         })
     );
