@@ -6,6 +6,7 @@
 * Build logout from staff-view
 * Reset input fields after submissions
 * Add enum drop down to edit-view
+* Add search to CRUD vies. DONE
 
 
 1/8/19

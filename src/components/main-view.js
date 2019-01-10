@@ -75,8 +75,6 @@ export default class MainView extends React.Component {
     ));
     }
 
-
-
     return (
       <div>
         <section className="searchbar">

@@ -8,11 +8,11 @@ My Little Library is an inventory management tool for teachers. It is meant to g
  1. Search a catalog by author, title or genre.
 
  A teacher can perform the following actions,
- 1. Create an account with user credential.
- 2. Access a restricted few upon login.
- 3. Add new items to the catalog
- 4. Update items in the catalog
- 5. Remove items from the catalog
+1. Create an account with user credential.
+2. Access a restricted few upon login.
+3. Add new items to the catalog
+4. Update items in the catalog
+5. Remove items from the catalog
 
 
 
