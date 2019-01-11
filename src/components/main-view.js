@@ -53,7 +53,7 @@ export default class MainView extends React.Component {
     const bookList = this.state.books;
     let bookListElement;
     if(bookList.length ===  0){
-     bookListElement = 'Sorry, we don\'t have that item yet';
+     bookListElement = 'Sorry, we couldn\'t find that item yet';
     }else{
      bookListElement = bookList.map((book, index) => (
       <section key={index} className="search-result">
