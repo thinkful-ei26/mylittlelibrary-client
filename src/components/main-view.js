@@ -1,6 +1,7 @@
 import React from 'react';
 import { API_BASE_URL } from '../config';
 import './css/main-view.css';
+console.log(API_BASE_URL)
 
 export default class MainView extends React.Component {
   constructor(props) {
@@ -53,7 +54,7 @@ export default class MainView extends React.Component {
     const bookList = this.state.books;
     let bookListElement;
     if(bookList.length ===  0){
-     bookListElement = 'Sorry, we couldn\'t find that item yet';
+     bookListElement = 'Sorry, we couldn\'t find that item  ';
     }else{
      bookListElement = bookList.map((book, index) => (
       <section key={index} className="search-result">
