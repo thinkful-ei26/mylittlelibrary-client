@@ -4,7 +4,7 @@ The app is deployed at https://obscure-ridge-45179.herokuapp.com/
 
  In this first prototype My Little Library is configured to work with print material. It could easily extend to other resources.
 
- The app offers a student view, and a staff view. The student view is read-only, and lets students search a catalog of materials. A staff view, requiring account registration and log in, lets staff add, update and delete materials.
+ The app provides a student view, and a staff view. The student view is read-only, and lets students search a catalog of materials. A staff view, requiring account registration and log in, lets staff add, update and delete materials.
 
  A student can perform the following actions,
  1. Search a catalog by author, title or genre.
