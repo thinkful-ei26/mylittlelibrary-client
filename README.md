@@ -1,4 +1,4 @@
-My Little Library is an inventory management tool for teachers. It is meant to give teachers a way to record and track the movement of educational materials in a student group. Picture a high school or elementary school teacher, with a closet full of supplemental teaching aides, such as models, posters, flash cards, books and other media. This is the target user.
+My Little Library is an inventory management tool for teachers. It is meant to give teachers a way to record and track the movement of educational materials in a student group. Picture a high school or elementary school setting. Staff may have shelves or  a closet full of supplemental teaching materials, such as models, posters, flash cards, books and other media. This is the target user.
 
 The app is deployed at https://obscure-ridge-45179.herokuapp.com/
 Front end code review at https://github.com/thinkful-ei26/mylittlelibrary-client.git
