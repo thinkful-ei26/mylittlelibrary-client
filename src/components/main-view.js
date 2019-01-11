@@ -1,7 +1,7 @@
 import React from 'react';
 import { API_BASE_URL } from '../config';
 import './css/main-view.css';
-console.log(API_BASE_URL)
+// console.log(API_BASE_URL)
 
 export default class MainView extends React.Component {
   constructor(props) {
