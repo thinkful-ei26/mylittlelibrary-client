@@ -1,11 +1,11 @@
 import React from 'react';
 import { API_BASE_URL } from '../config';
-import { reduxForm, Field, SubmissionError, focus } from 'redux-form';
+import { reduxForm, Field, SubmissionError, focus, reset } from 'redux-form';
+import { required, nonEmpty } from '../validators';
 import './css/add-edit.css';
 import './css/result-message.css'
 import Input from './input';
 import BackToStaffView from './return-to-staff-view';
-import { reset } from 'redux-form';
 
 export class EditView extends React.Component {
   constructor(props) {
@@ -16,7 +16,6 @@ export class EditView extends React.Component {
   }
 
   onSubmit(values) {
-    // console.log('LOG VALUES', values.id);
     const id = values.id;
     const data = {
       title: values.title,
@@ -91,7 +90,7 @@ export class EditView extends React.Component {
               type="text"
               component={Input}
               label="id"
-              // validate={[required, nonEmpty]}
+              validate={[required, nonEmpty]}
             />
             <Field
               name="title"
@@ -99,7 +98,6 @@ export class EditView extends React.Component {
               type="text"
               component={Input}
               label="Title"
-              // validate={[required, nonEmpty]}
             />
             <Field
               name="author"
@@ -107,7 +105,6 @@ export class EditView extends React.Component {
               type="text"
               component={Input}
               label="Author"
-              // validate={[required, nonEmpty]}
             />
             <Field
               name="genre"
@@ -115,7 +112,6 @@ export class EditView extends React.Component {
               type="text"
               component={Input}
               label="Genre"
-              // validate={[required, nonEmpty]}
             />
             <Field
               name="summary"
@@ -123,7 +119,6 @@ export class EditView extends React.Component {
               type="text"
               component={Input}
               label="Summary"
-              //   validate={[required, nonEmpty]}
             />
             <Field
               name="isbn"
@@ -131,7 +126,6 @@ export class EditView extends React.Component {
               type="text"
               component={Input}
               label="ISBN"
-              // validate={[required, nonEmpty]}
             />
             <Field
               name="status"
@@ -139,7 +133,6 @@ export class EditView extends React.Component {
               type="text"
               component={Input}
               label="Status"
-              // validate={[required, nonEmpty]}
             />
             <div className="result-message">{resultMessage}</div>
              <div className="button-pack">

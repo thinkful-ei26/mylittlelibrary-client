@@ -1,12 +1,11 @@
 import React from 'react';
 import { API_BASE_URL } from '../config';
-import { reduxForm, Field, SubmissionError, focus } from 'redux-form';
+import { reduxForm, Field, SubmissionError, focus, reset } from 'redux-form';
 import './css/add-edit.css';
 import './css/result-message.css';
 import { required, nonEmpty } from '../validators';
 import Input from './input';
 import BackToStaffView from './return-to-staff-view';
-import { reset } from 'redux-form';
 
 export class AddView extends React.Component {
   constructor(props) {
