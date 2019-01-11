@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header>
       <h1>My Little Library</h1>
-      <img src="http://www.ctwpl.info/images/menu/topbannerwide.jpg" alt="a public library facade"/>
+      <img src="../../images/topbannerwide.jpg" alt="a public library facade" />
 
       <nav>
         <ul>
@@ -14,14 +14,8 @@ export default function Header() {
             <Link to={'/'}>Home</Link>
           </li>
           <li>
-          <Link to={'./login'}>Staff Login</Link>
+            <Link to={'./login'}>Staff Login</Link>
           </li>
-          {/* <li>
-             <a href="">Log in</a>
-          </li>
-          <li>
-              <a href="">Library Information</a>
-          </li> */}
         </ul>
       </nav>
     </header>
