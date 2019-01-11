@@ -31,15 +31,21 @@ GUIDE TO COMPONENTS:
 1.  index.js is the main rendering component. It renders App.js and wraps it in react-redux and react-router-dom
 2.  In App.js I import the  main child components and wrap them in Route's to facilitate navigation within the app.
 3.  main-view.js holds all the logic and state for a search function (it is non-redux), which gets imported and used in several views. The component queries the database with fetch, and renders the results.
+file:///home/jimmy/Pictures/Screenshot%20from%202019-01-11%2015-20-45.png
+
 4. The login and registration forms both make use of input.js which renders the input fields and captures the input values. 
     a. The registration component makes use of a registerUser action (action/users.js) to fetch the ajax call to POST a new user, and then logs that new user into the staff-view.
     b. The login-form component relies on the actions/auth actions to verify web tokens and authenticate users.
+file:///home/jimmy/Pictures/Screenshot%20from%202019-01-11%2015-22-04.png
+
 5. On successful loging staff-view.js is rendered. This is a navigation portal to crud operations. 
     a. The add-view.js, edit-view.js and delete-view.js components all work in a similar way. They each
         - render an input form and capture input values.
         - apply validation to select fields (defined in, and imported from src/validators.js)
         - make an ajax call and evalutate the response.
         - message the user.
+
+file:///home/jimmy/Pictures/Screenshot%20from%202019-01-11%2015-23-17.png
 
 HOW TO USE
 - Download the front and back ends from the repositories linked above.
